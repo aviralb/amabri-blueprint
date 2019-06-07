@@ -9,35 +9,33 @@
     7  cat /etc/yum.repos.d/ambari.repo
     8  yum -y install ambari-server ambari-agent
     9  sudo yum -y install ambari-server ambari-agent
-   
-   11  sudo ambari-server setup -s
-   
-   13  sudo chkconfig ambari-agent on
-   14  sudo chkconfig ambari-server on
-   15  sudo service ambari-server start
-   16  sudo service ambari-agent start
-   17  hostname
+    11  sudo ambari-server setup -s
+    13  sudo chkconfig ambari-agent on
+    14  sudo chkconfig ambari-server on
+    15  sudo service ambari-server start
+    16  sudo service ambari-agent start
+    17  hostname
  
 
-   21  sudo vi or nano  /etc/ambari-agent/conf/ambari-agent.ini
-   22  hostname
+    21  sudo vi or nano  /etc/ambari-agent/conf/ambari-agent.ini
+    22  hostname
        
 Change the host name here
 
-   25  cat /etc/ambari-agent/conf/ambari-agent.ini
+    25  cat /etc/ambari-agent/conf/ambari-agent.ini
  
-   35  ls
-   36  cd
-   37  mkdir blueprint
-   38  cd blueprint/
-   39  ls
+    35  ls
+    36  cd
+    37  mkdir blueprint
+    38  cd blueprint/
+    39  ls
  
-   42  sudo nano hostmapping.json
+    42  sudo nano hostmapping.json
    
  
    
-   47  sudo nano cluster_configuration.json
-   48  hostname
+    47  sudo nano cluster_configuration.json
+    48  hostname
 
 curl -H "X-Requested-By: ambari" -X POST -u admin:admin http://yourhostname:8080/api/v1/blueprints/single-node-hdp-cluster -d  cluster_configuration.json
 
